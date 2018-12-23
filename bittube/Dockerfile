@@ -13,7 +13,11 @@ RUN mkdir -p /daemon/data
 WORKDIR /daemon/
 RUN curl -L -o daemon.zip https://github.com/ipbc-dev/bittube/releases/download/2.0.0.4/bittube-linux-x64-v2.0.0.4.zip \
   && unzip daemon.zip -d /daemon \
-  &&rm -f daemon.zip
+  && chown -R daemon /daemon \
+  && chmod +x /daemon/* \
+  && rm -f daemon.zip
+
+USER daemon
 
 EXPOSE 18081 18082
 VOLUME [ "/daemon/data" ]
