@@ -27,7 +27,8 @@ RUN apt-get -qq update \
     libtool-bin \
     autoconf \
     automake \
-    jq
+    jq \
+    nano
 
 # Create app and data directory
 RUN mkdir -p /daemon/data
