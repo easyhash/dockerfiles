@@ -26,7 +26,8 @@ RUN apt-get -qq update \
     doxygen \
     libtool-bin \
     autoconf \
-    automake
+    automake \
+    jq
 
 # Create app and data directory
 RUN mkdir -p /daemon/data
