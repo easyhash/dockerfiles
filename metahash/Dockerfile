@@ -8,7 +8,11 @@ RUN curl -L -o metahash-proxy.deb https://github.com/metahashorg/node_proxy/rele
 
 
 WORKDIR /opt/proxy
-RUN mkdir key
 
-# Remember to map your HEX-private key to /opt/proxy/proxy_key via VOLUME or SECRET
-CMD ./proxy key/proxy_key proxy_config 9999 1000000
+ENV PROXY_KEY=key/proxy_key
+ENV PROXY_CONFIG=proxy_config
+ENV PROXY_PORT=9999
+ENV PROXY_LIMIT=1000000
+
+# Remember to map your HEX-private key to ${PROXY_KEY} via VOLUME or SECRET
+CMD ./proxy ${PROXY_KEY} ${PROXY_CONFIG} ${PROXY_PORT} ${PROXY_LIMIT}
