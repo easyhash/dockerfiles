@@ -15,4 +15,6 @@ ENV PROXY_PORT=9999
 ENV PROXY_LIMIT=5000000
 
 # Remember to map your HEX-private key to ${PROXY_KEY} via VOLUME or SECRET
+# Run the following on the Docker host and reboot.
+# echo '* - core unlimited' >>/etc/security/limits.conf
 CMD ./proxy ${PROXY_KEY} ${PROXY_CONFIG} ${PROXY_PORT} ${PROXY_LIMIT}
