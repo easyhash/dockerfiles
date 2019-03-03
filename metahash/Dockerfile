@@ -1,4 +1,4 @@
-FROM ubuntu:bionic
+FROM ubuntu:xenial
 RUN apt update \
     && apt install -y nano curl libssl1.0.0
 
@@ -12,7 +12,7 @@ WORKDIR /opt/proxy
 ENV PROXY_KEY=key/proxy_key
 ENV PROXY_CONFIG=proxy_config
 ENV PROXY_PORT=9999
-ENV PROXY_LIMIT=1000000
+ENV PROXY_LIMIT=5000000
 
 # Remember to map your HEX-private key to ${PROXY_KEY} via VOLUME or SECRET
 CMD ./proxy ${PROXY_KEY} ${PROXY_CONFIG} ${PROXY_PORT} ${PROXY_LIMIT}
