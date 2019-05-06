@@ -35,7 +35,7 @@ RUN mkdir -p /daemon/data
 
 # Install Daemon
 WORKDIR /daemon/
-RUN curl -L -o daemon.zip https://github.com/ipbc-dev/bittube/releases/download/2.1.0.0/bittube-linux-x64-v2.1.0.0.zip \
+RUN curl -L -o daemon.zip https://github.com/ipbc-dev/bittube/releases/download/2.1.0.1/bittube-linux-x64-v2.1.0.1.zip \
   && unzip daemon.zip -d /daemon \
   && chown -R daemon /daemon \
   && chmod +x /daemon/* \
@@ -43,5 +43,5 @@ RUN curl -L -o daemon.zip https://github.com/ipbc-dev/bittube/releases/download/
 
 USER daemon
 
-EXPOSE 18080 18081 18082
+EXPOSE 18080 18081 18082 18083
 VOLUME [ "/daemon/data" ]
