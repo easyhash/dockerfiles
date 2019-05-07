@@ -1,0 +1,17 @@
+stages:
+- name: Build
+  steps:
+  - publishImageConfig:
+      dockerfilePath: ./bittube/Dockerfile
+      buildContext: .
+      tag: easyhash/bittube:latest,build-${CICD_EXECUTION_SEQUENCE}
+      pushRemote: true
+      registry: index.docker.io
+  - publishImageConfig:
+      dockerfilePath: ./miningcore-ui/Dockerfile
+      buildContext: .
+      tag: easyhash/miningcore-ui:latest,build-${CICD_EXECUTION_SEQUENCE}
+      pushRemote: true
+      registry: index.docker.io
+timeout: 60
+notification: {}
