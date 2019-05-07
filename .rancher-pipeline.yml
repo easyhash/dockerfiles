@@ -7,6 +7,10 @@ stages:
       tag: easyhash/bittube:latest,build-${CICD_EXECUTION_SEQUENCE}
       pushRemote: true
       registry: index.docker.io
+    when:
+      event:
+        include:
+        - tag
   - publishImageConfig:
       dockerfilePath: ./miningcore-ui/Dockerfile
       buildContext: .
